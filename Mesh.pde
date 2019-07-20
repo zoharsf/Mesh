@@ -35,11 +35,13 @@ void draw() {
   drawEdges();
   killOldPoints();
   drawPoints();
+  spawn();
 
-  if (stage == 0) {
-    spawn();
-  } else {
-    spawnChance = spawnChance-0.3;
+  if (stage != 0) {
+    spawnChance = 0.05;
+  }
+  if (stage != 0 && array.size() < 5){
+    spawnChance = 0;
   }
   if (array.size() >= maxDotNum) {
     stage = 1;
